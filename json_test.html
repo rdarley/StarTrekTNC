@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $.getJSON("https://itunes.apple.com/us/rss/customerreviews/id=1193095604/sortBy=mostRecent/json", function(result){
+        $.each(result, function(i){
+          $.each(result[i].entry, function(e) {
+            console.log(result[i].entry[e])
+            $('#myDiv').append('<p>' + JSON.stringify(result[i].entry[e]) + '</p><br>');
+          });
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <button>Get JSON data</button>
+  <div id="myDiv"></div>
+</body>
+</html>
