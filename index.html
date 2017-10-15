@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Star Trek: The Next Conversation - Admiral's Club</title>
+		
+		
+		<!-- Font Awesome stylesheet for icons -->
+		<link href="css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		
+	</head>
+	<body>
+		
+		<div ng-app="tncApp">
+		
+			<div ng-controller="AdmiralsClub as vm">
+			
+				<h1>Customer Reviews</h1>
+				<div ng-cloak class="review" ng-repeat="review in vm.admiralsClub">
+					<h3>"{{review.title.label}}" <small ng-bind-html="review.rating"></small></h3>
+					<p>
+						{{review.content.label}}
+					</p>
+					<p class="username">- {{review.author.name.label}}</p>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="app/js/angular-1.6.6/angular.min.js"></script>
+		<script src="app/js/angular-1.6.6/angular-sanitize.min.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/controllers/admiralsClub.js"></script>
+	</body>
+</html>

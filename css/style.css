@@ -1,0 +1,22 @@
+body {
+	font-family: sans-serif;
+}
+
+.fa {
+	color: gold;
+}
+
+.review {
+	padding: 20px;
+	background-color: #EDEDED;
+	margin-bottom: 20px;
+}
+
+.username {
+	text-align: right;
+	font-style: oblique;
+}
+
+.ng-cloak {
+	display: none;
+}
