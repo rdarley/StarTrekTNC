@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import ContactForm
 
@@ -10,8 +10,12 @@ def index():
     return render_template('index.html', title='Home', welcome_msg=welcome_msg)
 
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        flash(f'Hail sent from {form.first_name.data} {form.last_name.data}')
+        return redirect(url_for('index'))
     return render_template('contact.html',
                            title='Contact Us',
-                           form=ContactForm())
+                           form=form)

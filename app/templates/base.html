@@ -9,10 +9,19 @@
     <body>
         <div>
           Navigation:
-          <a href="/index">Home</a>
-          <a href="/contact">Contact</a>
+          <a href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('contact')}}">Contact</a>
         </div>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>
