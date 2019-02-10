@@ -15,7 +15,10 @@
         </p>
         <p>
             {{ form.hail.label }}<br>
-            {{ form.hail(cols="50", rows="10") }}
+            {{ form.hail(cols="50", rows="10") }}<br>
+            {% for error in form.hail.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
         </p>
         <p>{{ form.prime_corrective() }} {{ form.prime_corrective.label }}</p>
         <p>{{ form.submit() }}</p>
